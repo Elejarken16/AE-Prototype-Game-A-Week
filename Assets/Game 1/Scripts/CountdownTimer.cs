@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 {
-    int countDownStartValue = 60;
+    int countDownStartValue = 10;
     public float totalTime; 
     public Text timerUI;
     
