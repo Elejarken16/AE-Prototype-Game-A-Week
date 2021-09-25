@@ -30,7 +30,7 @@ public class CountdownTimer : MonoBehaviour
         else
         {
             timerUI.text = "GameOver!";
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
     }
 
