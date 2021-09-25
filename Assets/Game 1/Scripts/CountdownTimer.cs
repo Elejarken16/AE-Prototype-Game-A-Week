@@ -11,7 +11,7 @@ public class CountdownTimer : MonoBehaviour
     int countDownStartValue = 10;
     public float totalTime; 
     public Text timerUI;
-    
+    public float currentTime = 10f;
 
     void Start()
     {
@@ -30,9 +30,20 @@ public class CountdownTimer : MonoBehaviour
         else
         {
             timerUI.text = "GameOver!";
-            SceneManager.LoadScene(1);
+            int buildindex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(buildindex);
         }
     }
 
-    
+    //void Update()
+    //{
+        //currentTime -= Time.deltaTime;
+        //if (currentTime < 0)
+        //{
+            //int buildindex = SceneManager.GetActiveScene().buildIndex;
+           // SceneManager.LoadScene(buildindex);
+        //}
+    //}
+
+
 }
