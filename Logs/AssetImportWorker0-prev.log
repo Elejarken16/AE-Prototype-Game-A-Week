@@ -94,3 +94,11 @@ System memory in use after: 80.8 MB.
 Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 2245.
 Total: 2.141200 ms (FindLiveObjects: 0.177900 ms CreateObjectMapping: 0.058900 ms MarkObjects: 1.827900 ms  DeleteObjects: 0.075600 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 148.091187 seconds.
+  path: Assets/Game 1/Scenes/Week 1 Level 3.unity
+  artifactKey: Guid(120838ac2ff2b03419b7a1cfec410d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Game 1/Scenes/Week 1 Level 3.unity using Guid(120838ac2ff2b03419b7a1cfec410d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61262847d369b246dfcc9f9a235e1707') in 0.403926 seconds
+  Import took 0.408114 seconds .
+

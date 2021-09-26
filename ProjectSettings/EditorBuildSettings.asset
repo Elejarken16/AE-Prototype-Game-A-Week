@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game 1/Scenes/Week 1 Level 2.unity
     guid: 9b2db91f42d0f1e4c80edbd00452dacd
+  - enabled: 1
+    path: Assets/Game 1/Scenes/Week 1 Level 3.unity
+    guid: 120838ac2ff2b03419b7a1cfec410d17
   m_configObjects: {}
