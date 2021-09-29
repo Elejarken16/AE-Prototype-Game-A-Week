@@ -19,5 +19,8 @@ EditorBuildSettings:
     guid: 120838ac2ff2b03419b7a1cfec410d17
   - enabled: 1
     path: Assets/Game 1/Scenes/Week 1 Level 4.unity
-    guid: 91b7701442be51c48af0cd43803306ab
+    guid: 06cfd874259613c4faf8d80f49062a63
+  - enabled: 1
+    path: Assets/Game 1/Scenes/Week 1 Level 5.unity
+    guid: c5aeced15a5e2e44fbe725e23f6e34c5
   m_configObjects: {}
