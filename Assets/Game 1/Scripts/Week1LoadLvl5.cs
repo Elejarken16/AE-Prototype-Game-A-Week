@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLvl5 : MonoBehaviour
+public class Week1LoadLvl5 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
