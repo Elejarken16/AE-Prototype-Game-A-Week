@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class TD_Nodes : MonoBehaviour
 {
@@ -11,29 +12,43 @@ public class TD_Nodes : MonoBehaviour
 
     private Renderer rend;
     private Color startColor;
-    
 
+    TD_BuildManager buildManager;
     // Start is called before the first frame update
     void Start()
     {
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+
+        buildManager = TD_BuildManager.instance;
     }
 
     void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        if (buildManager.GetTurretToBuild() == null)
+            return;
+
         if(turret != null)
         {
             Debug.Log("Can't Build");
             return;
         }
 
-        GameObject turretToBuild = TD_BuildManager.instance.GetTurretToBuild();
+        GameObject turretToBuild = buildManager.GetTurretToBuild();
         turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
     }
 
     void OnMouseEnter()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        if (buildManager.GetTurretToBuild() == null)
+            return;
+
         rend.material.color = hoverColor;
     }
 
