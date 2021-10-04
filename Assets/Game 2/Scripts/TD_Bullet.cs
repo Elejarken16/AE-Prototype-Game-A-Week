@@ -7,6 +7,9 @@ public class TD_Bullet : MonoBehaviour
     private Transform target;
 
     public float speed = 70f;
+
+    public int damage = 50;
+
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
@@ -70,7 +73,14 @@ public class TD_Bullet : MonoBehaviour
 
     void Damage (Transform enemy)
     {
-        Destroy(enemy.gameObject);
+        TD_Enemy e = enemy.GetComponent<TD_Enemy>();
+
+        if(e != null)
+        {
+            e.TakeDamage(damage);
+        }
+
+        
     }
 
     void OnDrawGizmos()
