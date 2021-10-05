@@ -38,6 +38,7 @@ public class TD_Wavespawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveIndex++;
+        TD_PlayerStats.Rounds++;
 
         for (int i = 0; i < waveIndex; i++)
         {

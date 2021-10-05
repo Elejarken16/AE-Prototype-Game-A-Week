@@ -22,6 +22,7 @@ public class TD_BuildManager : MonoBehaviour
     public GameObject buildEffect;
 
     private TD_TurretBlueprint turretToBuild;
+    private TD_Nodes selectedNode;
 
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return TD_PlayerStats.Money >= turretToBuild.cost; } }
@@ -45,8 +46,15 @@ public class TD_BuildManager : MonoBehaviour
         Debug.Log("Turret build! Money left: " + TD_PlayerStats.Money);
     }
 
+    public void SelectNode(TD_Nodes node)
+    {
+        selectedNode = node;
+        turretToBuild = null;
+    }
+
     public void SelectTurretToBuild(TD_TurretBlueprint turret)
     {
         turretToBuild = turret;
+        selectedNode = null;
     }
 }
