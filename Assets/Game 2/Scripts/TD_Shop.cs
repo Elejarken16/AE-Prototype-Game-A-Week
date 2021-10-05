@@ -6,6 +6,7 @@ public class TD_Shop : MonoBehaviour
 {
     public TD_TurretBlueprint standardTurret;
     public TD_TurretBlueprint missileLauncher;
+    public TD_TurretBlueprint laserBeamer;
 
     TD_BuildManager buildManager;
 
@@ -15,13 +16,17 @@ public class TD_Shop : MonoBehaviour
     }
     public void SelectStandardTurret()
     {
-        Debug.Log("Standard");
+        Debug.Log("Standard Turret Selected");
         buildManager.SelectTurretToBuild(standardTurret);
     }
     public void SelectMissileLancher()
     {
-        Debug.Log("Another");
+        Debug.Log("Missile Launcher Selected");
         buildManager.SelectTurretToBuild(missileLauncher);
     }
-
+    public void SelectLaserBeamer()
+    {
+        Debug.Log("Laser Beamer Selected");
+        buildManager.SelectTurretToBuild(laserBeamer);
+    }
 }
