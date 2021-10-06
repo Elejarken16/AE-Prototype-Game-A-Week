@@ -11,6 +11,8 @@ public class TD_NodeUI : MonoBehaviour
     public TMP_Text upgradeCost;
     public Button upgradeButton;
 
+    public TMP_Text sellAmount;
+
     private TD_Nodes target;
 
 
@@ -30,7 +32,8 @@ public class TD_NodeUI : MonoBehaviour
             upgradeCost.text = "DONE";
             upgradeButton.interactable = false;
         }
-        
+
+        sellAmount.text = "$" + target.turretBlueprint.GetSellAmount();
 
         ui.SetActive(true);
     }
@@ -46,4 +49,9 @@ public class TD_NodeUI : MonoBehaviour
         TD_BuildManager.instance.DeselectNode();
     }
 
+    public void Sell()
+    {
+        target.SellTurret();
+        TD_BuildManager.instance.DeselectNode();
+    }
 }

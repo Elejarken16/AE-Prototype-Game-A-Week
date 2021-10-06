@@ -3816,8 +3816,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildEffect: {fileID: 2530795444258865581, guid: e95a25f7583c3c54ebdcb1a3e63c8b2a,
     type: 3}
-  sellEffect: {fileID: 2530795444258865581, guid: ade238a2b4c38c740bf877f8300c70a2,
-    type: 3}
   nodeUI: {fileID: 1058666719}
 --- !u!114 &348473115
 MonoBehaviour:
@@ -6836,7 +6834,7 @@ GameObject:
   - component: {fileID: 661156392}
   - component: {fileID: 661156391}
   m_Layer: 0
-  m_Name: Amount
+  m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11103,7 +11101,6 @@ MonoBehaviour:
   ui: {fileID: 1098883803}
   upgradeCost: {fileID: 180056759}
   upgradeButton: {fileID: 1233418602}
-  sellAmount: {fileID: 661156391}
 --- !u!4 &1058734559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8031676057133728067, guid: 7d0be1ebd0e33584aad817bebd9993dd,
@@ -12054,7 +12051,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1058666719}
         m_TargetAssemblyTypeName: TD_NodeUI, Assembly-CSharp
-        m_MethodName: Sell
+        m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
