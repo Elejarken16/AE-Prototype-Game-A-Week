@@ -7,4 +7,7 @@ public class TD_TurretBlueprint
 {
     public GameObject prefab;
     public int cost;
+
+    public GameObject upgradedPrefab;
+    public int upgradeCost;
 }
