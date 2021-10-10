@@ -9,6 +9,7 @@ public class GameManagement : MonoBehaviour
     int zombiesSpawnedInRound = 0;
     float zombiesSpawnTimer = 0;
     public Transform[] zombiesSpawnPoints;
+    public GameObject zombieEnemy;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class GameManagement : MonoBehaviour
     {
         if (zombiesSpawnedInRound < zombiesInRound)
         {
-            if (zombiesSpawnTimer > 30)
+            if (zombiesSpawnTimer > 10)
 
             {
                 SpawnZombies();
@@ -29,14 +30,16 @@ public class GameManagement : MonoBehaviour
             }
             else
             {
-                zombiesSpawnTimer++;
+                zombiesSpawnTimer+=Time.deltaTime;
             }
         }
     }
 
     void SpawnZombies()
     {
-
+        Vector3 randomSpawnPoint = zombiesSpawnPoints[Random.Range(0, zombiesSpawnPoints.Length)].position;
+        Instantiate(zombieEnemy, randomSpawnPoint, Quaternion.identity);
+        zombiesSpawnedInRound++;
     }
 }
 
