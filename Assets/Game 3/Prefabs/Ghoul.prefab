@@ -2014,6 +2014,7 @@ GameObject:
   - component: {fileID: 7534250304582957240}
   - component: {fileID: 7534250304582957244}
   - component: {fileID: 1215133182566944620}
+  - component: {fileID: 3848475161809576311}
   m_Layer: 0
   m_Name: Ghoul
   m_TagString: Untagged
@@ -2053,7 +2054,7 @@ Animation:
   m_Animations:
   - {fileID: 7400004, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
   - {fileID: 7400006, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
-  - {fileID: 7400010, guid: ce65fa103f0e84b4289374b2a4bf93f8, type: 3}
+  - {fileID: -203655887218126122, guid: c6b67cfc7d26aa741ac777782741900c, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -2125,6 +2126,22 @@ CapsuleCollider:
   m_Height: 3.41
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &3848475161809576311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533306406421920090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8f3fb1a88a4b24c953dada9b5b1924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  anim: {fileID: 7534250304582957246}
+  con: {fileID: 7534250304582957244}
+  nav: {fileID: 7534250304582957240}
 --- !u!1 &7533378015107863874
 GameObject:
   m_ObjectHideFlags: 0

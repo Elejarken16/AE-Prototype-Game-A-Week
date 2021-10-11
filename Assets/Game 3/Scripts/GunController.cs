@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunController : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GunController : MonoBehaviour
     bool _canShoot;
     int _currentAmmoInClip;
     int _ammoInReserve;
+
+    public Image muzzleFlashImage;
+    public Sprite[] flashes;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +52,18 @@ public class GunController : MonoBehaviour
 
     IEnumerator ShootGun()
     {
+        StartCoroutine(MuzzleFlash());
         yield return new WaitForSeconds(fireRate);
         _canShoot = true;
+    }
+
+    IEnumerator MuzzleFlash()
+    {
+        muzzleFlashImage.sprite = flashes[Random.Range(0, flashes.Length)];
+        muzzleFlashImage.color = Color.white;
+        yield return new WaitForSeconds(0.05f);
+        muzzleFlashImage.sprite = null;
+        muzzleFlashImage.color = new Color(0, 0, 0, 0);
     }
 
 }
