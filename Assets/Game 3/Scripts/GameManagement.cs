@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManagement : MonoBehaviour
 {
     public int round = 1;
-    int zombiesInRound = 10;
+    int zombiesInRound = 50;
     int zombiesSpawnedInRound = 0;
     float zombiesSpawnTimer = 0;
     public Transform[] zombiesSpawnPoints;
@@ -22,7 +22,7 @@ public class GameManagement : MonoBehaviour
     {
         if (zombiesSpawnedInRound < zombiesInRound)
         {
-            if (zombiesSpawnTimer > 10)
+            if (zombiesSpawnTimer > 5)
 
             {
                 SpawnZombies();

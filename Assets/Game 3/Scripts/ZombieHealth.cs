@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ZombieHealth : MonoBehaviour
 {
-    public int health = 3;
+    public float health = 50f;
     public Animator anim;
     public ZombieController con;
     public NavMeshAgent nav;
@@ -22,16 +22,23 @@ public class ZombieHealth : MonoBehaviour
         
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float amount)
     {
         health--;
-        if (health <= 0)
+        if (health <= 0f)
         {
             anim.Play("Die");
-            //con.enabled = false;
+            con.enabled = false;
             nav.enabled = false;
             this.enabled = false;
+            //WaitForSeconds 2 destroy gameobject
+            //Die();
         }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
 }

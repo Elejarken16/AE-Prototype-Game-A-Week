@@ -24,9 +24,9 @@ TagManager:
   - EnemyProjectiles
   - FlyingEnemies
   - GroundEnemyTargettingProjectiles
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Boundary
   - 
   - 
   - 
