@@ -2087,12 +2087,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 7533306406421920090}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.29
+  m_Radius: 0.34
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 90
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -2112,6 +2112,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6213fbde704c0d84baa1f11b0f8eaae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canAttck: 1
+  chaseDistance: 2
+  damageAmount: 5
+  attackTime: 5
 --- !u!136 &1215133182566944620
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2122,7 +2126,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
+  m_Radius: 0.31
   m_Height: 3.41
   m_Direction: 1
   m_Center: {x: 0, y: 2, z: 0}
@@ -2138,8 +2142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8f3fb1a88a4b24c953dada9b5b1924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  anim: {fileID: 7534250304582957246}
+  enemyHealth: 50
+  isEnemyDead: 0
   con: {fileID: 7534250304582957244}
   nav: {fileID: 7534250304582957240}
 --- !u!1 &7533378015107863874

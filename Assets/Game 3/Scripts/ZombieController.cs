@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class ZombieController : MonoBehaviour
 {
-    UnityEngine.AI.NavMeshAgent nav;
-    Transform player;
+    UnityEngine.AI.NavMeshAgent agent;
+    Transform target;
     Animator controller;
-    // Use this for initialization
+    Animator anim;
+    bool isDead = false;
+    public bool canAttck = true;
+    [SerializeField]
+    float chaseDistance = 2f;
+    public float damageAmount = 5f;
+    [SerializeField]
+    float attackTime = 2f;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Awake()
     {
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         controller = GetComponentInParent<Animator>();
 
     }
@@ -19,7 +31,63 @@ public class ZombieController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nav.SetDestination(player.position);
-        controller.SetFloat("speed", Mathf.Abs(nav.velocity.x + nav.velocity.z));
+        agent.SetDestination(target.position);
+        controller.SetFloat("speed", Mathf.Abs(agent.velocity.x + agent.velocity.z));
+
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance < chaseDistance && canAttck && !PlayerHealth.singleton.isDead)
+        {
+            AttackPlayer();
+        }
+        else if (distance > chaseDistance && !isDead)
+        {
+            ChasePlayer();
+        }
+        
+        
+        else if (PlayerHealth.singleton.isDead)
+        {
+            DisableEnemy();
+        }
     }
+
+    public void EnemyDeathAnim()
+    {
+        isDead = true;
+        anim.SetTrigger("isDead");
+    }
+
+    void ChasePlayer()
+    {
+        agent.updatePosition = true;
+        agent.SetDestination(target.position);
+        anim.SetBool("isWalking", true);
+        anim.SetBool("isAttacking", false);
+    }
+
+    void AttackPlayer()
+    {
+        agent.updatePosition = false;
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isAttacking", true);
+        StartCoroutine(AttackTime());
+    }
+
+    void DisableEnemy()
+    {
+        canAttck = false;
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isAttacking", false);
+    }
+
+    IEnumerator AttackTime()
+    {
+        canAttck = false;
+        yield return new WaitForSeconds(0.5f);
+        PlayerHealth.singleton.PlayerDamage(damageAmount);
+        yield return new WaitForSeconds(attackTime);
+        canAttck = true;
+    }
+
 }

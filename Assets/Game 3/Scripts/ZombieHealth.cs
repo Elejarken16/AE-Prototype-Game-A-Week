@@ -5,40 +5,48 @@ using UnityEngine.AI;
 
 public class ZombieHealth : MonoBehaviour
 {
-    public float health = 50f;
-    public Animator anim;
+    public float enemyHealth = 50f;
+    ZombieController enemyAI;
+    public bool isEnemyDead;
+   
     public ZombieController con;
     public NavMeshAgent nav;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyAI = GetComponent<ZombieController>();
     }
 
     // Update is called once per frame
-    void Update()
+    public void DeductHealth(float deductHealth)
     {
-        
-    }
-
-    public void TakeDamage(float amount)
-    {
-        health--;
-        if (health <= 0f)
+        if (!isEnemyDead)
         {
-            anim.Play("Die");
-            con.enabled = false;
-            nav.enabled = false;
-            this.enabled = false;
-            //WaitForSeconds 2 destroy gameobject
-            //Die();
+            enemyHealth -= deductHealth;
+
+            if (enemyHealth <= 0) { EnemyDead(); }
         }
     }
 
-    void Die()
+    //public void TakeDamage(float amount)
+    //{
+        //enemyHealth--;
+        //if (enemyHealth <= 0f)
+       // {
+            
+            //con.enabled = false;
+            //nav.enabled = false;
+            //this.enabled = false;
+            
+        //}
+   // }
+
+    void EnemyDead()
     {
-        Destroy(gameObject);
+        isEnemyDead = true;
+        enemyAI.EnemyDeathAnim();
+        Destroy(gameObject,5);
     }
 
 }

@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour
         Physics.Raycast(camera.transform.position, camera.transform.forward,out hit, range);
         if (hit.collider.GetComponent<ZombieHealth>())
         {
-            hit.collider.GetComponent<ZombieHealth>().TakeDamage(damage);
+            hit.collider.GetComponent<ZombieHealth>().DeductHealth(damage);
             GameObject FX = Instantiate(hitFX, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(FX,1);
 
